@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <title>Innothread</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZGS08J5P6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XZGS08J5P6');
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Verdana, sans-serif;
+      color: #0b0e4d;
+      padding-bottom: 30px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0b0e4d;
+    }
+
+    .hero {
+      background: rgb(212, 219, 236);
+      background: linear-gradient(180deg, rgba(212, 219, 236, 1) 0%, rgba(255, 255, 255, 1) 100%);
+      margin-bottom: 20px;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .header-wrapper {
+      padding-top: 20px;
+      margin: 0 20px 100px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      height: 40px;
+      position: relative;
+    }
+
+    .pricing-sign-up-spacer {
+      min-width: 160px;
+    }
+
+    .logo-wrapper {
+      max-width: 200px;
+    }
+
+    .logo {
+      width: 100%;
+      padding-top: 10px;
+    }
+
+    .pricing-sign-up {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap-reverse;
+      justify-content: flex-end;
+    }
+
+    .pricing {
+      border: none;
+      background: none;
+      padding: 10px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .blue-button {
+      background-color: #293ec8;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 32px;
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .sign-up-header {
+      margin-left: 20px;
+    }
+
+    .hero-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero-text {
+      max-width: 450px;
+    }
+
+    .white-badge {
+      color: #7279be;
+      background-color: white;
+      display: inline-block;
+      padding: 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .hero-heading {
+      font-size: 29px;
+      margin: 0 0 20px;
+    }
+
+    .hero-subheading {
+      margin: 0 0 20px;
+      color: #696e7f;
+      font-weight: 400;
+      font-size: 17px;
+    }
+
+    .sign-up-hero {
+      margin-bottom: 135px;
+      display: flex;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .first-h2 {
+      margin: 0;
+    }
+
+    .second-h2 {
+      margin: 0 0 20px;
+    }
+
+    .hero-image {
+      display: block;
+      max-width: 450px;
+      transform: rotate(4deg);
+    }
+
+    .example-1 {
+      margin-bottom: 32px;
+    }
+
+    .sections-2-3-subheading {
+      margin-top: 0;
+      margin-bottom: 30px;
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0 auto;
+    }
+
+    .cards-large-gap {
+      margin-bottom: 100px;
+    }
+
+    .card {
+      background-color: white;
+      padding: 20px;
+      -webkit-box-shadow: 0px 0px 13px -2px rgba(224, 224, 224, 1);
+      -moz-box-shadow: 0px 0px 13px -2px rgba(224, 224, 224, 1);
+      box-shadow: 0px 0px 13px -2px rgba(224, 224, 224, 1);
+      border-radius: 10px;
+      width: 215px;
+      max-width: 215px;
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      margin: 10px auto 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-1-icon {
+      background-color: #ffefe8;
+    }
+
+    .feature-2-icon {
+      background-color: #e9ebff;
+    }
+
+    .feature-3-icon {
+      background-color: #fff6dc;
+    }
+
+    .feature-heading {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    .icon-img {
+      width: 27px;
+    }
+
+    .feature-subheading {
+      margin-bottom: 16px;
+    }
+
+    .get-started {
+      width: 100%;
+      text-align: left;
+      padding: 8px 0;
+      background: none;
+      border: none;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .subheading-get-started {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .waitlist {
+      background-color: #e6f5ff;
+      border-radius: 10px;
+      padding: 50px 15px;
+      margin-bottom: 40px;
+    }
+
+    .waitlist-heading {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    #waitlist {
+      scroll-margin-top: 320px;
+    }
+
+    .waitlist-input-button {
+      border-radius: 100px;
+      background-color: white;
+      padding: 8px;
+      width: 360px;
+      display: inline-block;
+    }
+
+    .waitlist-input-flex {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .waitlist-button {
+      border: none;
+      background: #2a3fcc;
+      border-radius: 50%;
+      color: white;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .submit-icon {
+      width: 8px;
+    }
+
+    .waitlist-input {
+      border: none;
+      font-size: 16px;
+      margin-left: 15px;
+      margin-right: 15px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .waitlist-input::placeholder {
+      color: #949494;
+    }
+
+    .waitlist-input:focus {
+      outline: none;
+    }
+
+    .pricing-heading {
+      font-weight: 700;
+      font-size: 21px;
+      margin: 10px 0 30px;
+    }
+
+    .pricing-subheading {
+      margin-bottom: 14px;
+    }
+
+    .original-price {
+      color: #a19fb7;
+      font-size: 21px;
+      margin-left: 32px;
+      position: relative;
+    }
+
+    .price-line {
+      position: absolute;
+      height: 2px;
+      background: #c6080a;
+      transform: rotate(-6deg);
+      top: 12px;
+      left: -9px;
+    }
+
+    .wide {
+      width: 96px;
+    }
+
+    .narrow {
+      width: 81px;
+    }
+
+    .waitlist-price-per-month {
+      margin-bottom: 30px;
+    }
+
+    .waitlist-price {
+      font-weight: 700;
+      font-size: 25px;
+    }
+
+    .per-month {
+      color: #6a6a72;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .pricing-info-join {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .pricing-info {
+      margin-bottom: 10px;
+    }
+
+    .checkmark-text {
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      color: #74747d;
+      margin-bottom: 13px;
+    }
+
+    .checkmark {
+      border-radius: 50%;
+      background: #dfebf7;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+    }
+
+    .checkmark-img {
+      width: 12px;
+    }
+
+    .join-waitlist-button-2 {
+      background: #dfebf7;
+      color: #293ec8;
+    }
+
+    @media (max-width: 990px) {
+      .header-wrapper {
+        margin: 0 0 50px;
+      }
+
+      .hero-text {
+        max-width: unset;
+      }
+
+      .white-badge {
+        margin-bottom: 8px;
+      }
+
+      .sign-up-hero {
+        justify-content: center;
+        margin-bottom: 100px;
+      }
+
+      .hero-content {
+        justify-content: center;
+      }
+
+      .hero-subheading {
+        margin-bottom: 40px;
+      }
+
+      .example-2 {
+        margin-bottom: 32px;
+      }
+
+      .cards-large-gap {
+        margin-bottom: 80px;
+      }
+
+      .waitlist {
+        margin-bottom: 30px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .pricing-sign-up {
+        width: 180px;
+      }
+    }
+
+    @media (max-width: 470px) {
+      .blue-button {
+        font-size: 16px;
+      }
+
+      .pricing {
+        font-size: 16px;
+      }
+
+      .waitlist-input-button {
+        width: calc(100% - 30px);
+      }
+    }
+
+    @media (max-width: 435px) {
+      .logo-wrapper {
+        flex: 1 1 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-image {
+        width: 90vw;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="hero">
+  <div class="page">
+    <header class="header-wrapper">
+      <div class="header">
+        <div class="logo-wrapper">
+          <img class="logo" src="./logo.png"/>
+        </div>
+        <div class="pricing-sign-up-spacer"></div>
+        <nav class="pricing-sign-up">
+          <a href="#waitlist" class="pricing">
+            Pricing
+          </a>
+          <a href="#waitlist" class="blue-button sign-up-header">
+            Sign up
+          </a>
+        </nav>
+      </div>
+    </header>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="white-badge">
+          Business Idea Finder
+        </div>
+        <h1 class="hero-heading">
+          Get Business Ideas With REAL Demand From the Internet
+        </h1>
+        <h3 class="hero-subheading">
+          Innothread identifies problems that people discuss online and presents them to you, allowing you to create
+          businesses that address these issues.
+        </h3>
+      </div>
+      <div>
+        <img class="hero-image example-1" src="./example-1.png"/>
+        <img class="hero-image example-2" src="./example-2.png"/>
+      </div>
+    </div>
+    <div class="sign-up-hero">
+      <a href="#waitlist" class="blue-button">
+        Sign Up
+      </a>
+    </div>
+    <h2 class="first-h2 center">
+      Discover what businesses people are demanding the most
+    </h2>
+  </div>
+</div>
+<div class="page">
+  <h3 class="sections-2-3-subheading center">
+    Let people on the internet come up with a business idea for you
+  </h3>
+  <div class="cards cards-large-gap">
+    <div class="card">
+      <div class="feature-icon feature-1-icon">
+        <img class="icon-img" src="feature-1-icon.png"/>
+      </div>
+      <div class="feature-heading">Avoid Business Failure</div>
+      <div class="subheading-get-started">
+        <div class="feature-subheading">Prevent building something nobody wants to pay money for.</div>
+        <a href="#waitlist" class="get-started">Get Started >></a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="feature-icon feature-2-icon">
+        <img class="icon-img" src="feature-2-icon.png"/>
+      </div>
+      <div class="feature-heading">AI analysis of vast datasets</div>
+      <div class="subheading-get-started">
+        <div class="feature-subheading">Get precise insights extracted from numerous online conversations.</div>
+        <a href="#waitlist" class="get-started">Get Started >></a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="feature-icon feature-3-icon">
+        <img class="icon-img" src="feature-3-icon.png"/>
+      </div>
+      <div class="feature-heading">Receive evidence</div>
+      <div class="subheading-get-started">
+        <div class="feature-subheading">Get each business idea presented along with information about its origin.</div>
+        <a href="#waitlist" class="get-started">Get Started >></a>
+      </div>
+    </div>
+  </div>
+  <h2 class="second-h2 center">
+    Get early access for a discount
+  </h2>
+  <h3 class="sections-2-3-subheading center">
+    Join our waitlist and get access to Innothread for a discounted early-bird price
+  </h3>
+  <div class="waitlist center">
+    <h2 class="waitlist-heading">Join the waitlist now</h2>
+    <div class="waitlist-input-button">
+      <form class="waitlist-input-flex" action="https://submit-form.com/kjRVycikk">
+        <input
+          type="email"
+          id="waitlist"
+          class="waitlist-input"
+          name="email"
+          placeholder="Enter your email address"
+        >
+        <button type="submit" class="waitlist-button">
+          <img class="submit-icon" src="submit-icon.png"/>
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="pricing-heading">Base</div>
+      <div class="pricing-subheading">For those getting started with brainstorming.</div>
+      <div class="original-price">
+        <div class="price-line narrow"></div>
+        $9.99
+      </div>
+      <div class="waitlist-price-per-month">
+        <span class="waitlist-price">$4.99</span>
+        <span class="per-month">Per Month</span>
+      </div>
+      <div class="pricing-info-join">
+        <div class="pricing-info">
+          <div class="checkmark-text">
+            <div class="checkmark">
+              <img class="checkmark-img" src="check-icon.png"/>
+            </div>
+            <div>
+              Access to all business ideas
+            </div>
+          </div>
+          <div class="checkmark-text">
+            <div class="checkmark">
+              <img class="checkmark-img" src="check-icon.png"/>
+            </div>
+            <div>
+              See evidence of each idea
+            </div>
+          </div>
+        </div>
+        <a href="#waitlist" class="blue-button join-waitlist-button-2">Join waitlist</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="pricing-heading">Standard</div>
+      <div class="pricing-subheading">For those who are ready to start digging deeper.</div>
+      <div class="original-price">
+        <div class="price-line wide"></div>
+        $14.99
+      </div>
+      <div class="waitlist-price-per-month">
+        <span class="waitlist-price">$7.99</span>
+        <span class="per-month">Per Month</span>
+      </div>
+      <div class="pricing-info-join">
+        <div class="pricing-info">
+          <div class="checkmark-text">
+            <div class="checkmark">
+              <img class="checkmark-img" src="check-icon.png"/>
+            </div>
+            <div>
+              Access to all business ideas
+            </div>
+          </div>
+          <div class="checkmark-text">
+            <div class="checkmark">
+              <img class="checkmark-img" src="check-icon.png"/>
+            </div>
+            <div>
+              See evidence of each idea
+            </div>
+          </div>
+          <div class="checkmark-text">
+            <div class="checkmark">
+              <img class="checkmark-img" src="check-icon.png"/>
+            </div>
+            <div>
+              Market research insights
+            </div>
+          </div>
+        </div>
+        <a href="#waitlist" class="blue-button">Join waitlist</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="pricing-heading">Pro</div>
+      <div class="pricing-subheading">For those who are ready to start implementing.</div>
+      <div class="original-price">
+        <div class="price-line wide"></div>
+        $19.99
+      </div>
+      <div class="waitlist-price-per-month">
+        <span class="waitlist-price">$9.99</span>
+        <span class="per-month">Per Month</span>
+      </div>
+      <div class="pricing-info-join">
+        <div class="pricing-info">
+          <div class="checkmark-text">
+            <div class="checkmark">
+              <img class="checkmark-img" src="check-icon.png"/>
+            </div>
+            <div>
+              Access to all business ideas
+            </div>
+          </div>
+          <div class="checkmark-text">
+            <div class="checkmark">
+              <img class="checkmark-img" src="check-icon.png"/>
+            </div>
+            <div>
+              See evidence of each idea
+            </div>
+          </div>
+          <div class="checkmark-text">
+            <div class="checkmark">
+              <img class="checkmark-img" src="check-icon.png"/>
+            </div>
+            <div>
+              Market research insights
+            </div>
+          </div>
+          <div class="checkmark-text">
+            <div class="checkmark">
+              <img class="checkmark-img" src="check-icon.png"/>
+            </div>
+            <div>
+              Tips on how to build the business
+            </div>
+          </div>
+        </div>
+        <a href="#waitlist" class="blue-button join-waitlist-button-2">Join waitlist</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
