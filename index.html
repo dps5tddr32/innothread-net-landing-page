@@ -25,6 +25,62 @@
       padding-bottom: 30px;
     }
 
+    body.submitting {
+      opacity: 0.2;
+    }
+
+    #spinner {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none; /* Hidden by default */
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(0, 0, 0, 0.2);
+      border-top: 5px solid #000;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      z-index: 1000; /* Ensure it's above everything else */
+    }
+
+    @keyframes spin {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    #successMessage {
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #8496c6;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1.2em;
+      display: none; /* Hidden by default */
+      z-index: 1000; /* Ensure it's above everything else */
+    }
+
+    #errorMessage {
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #dc3030;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1.2em;
+      display: none; /* Hidden by default */
+      z-index: 1000; /* Ensure it's above everything else */
+    }
+
     a {
       text-decoration: none;
       color: #0b0e4d;
@@ -467,6 +523,11 @@
         width: 90vw;
       }
     }
+
+    button:disabled {
+      opacity: 0.3;
+      pointer-events: none; /* Prevent clicks when disabled */
+    }
   </style>
 </head>
 <body>
@@ -561,7 +622,7 @@
   <div class="waitlist center">
     <h2 class="waitlist-heading">Join the waitlist now</h2>
     <div class="waitlist-input-button">
-      <form class="waitlist-input-flex" action="https://submit-form.com/kjRVycikk">
+      <form id="waitlist-form" class="waitlist-input-flex">
         <input
           type="email"
           id="waitlist"
@@ -570,10 +631,17 @@
           placeholder="Enter your email address"
           required
         >
-        <button type="submit" class="waitlist-button">
+        <button id="submit-button" type="submit" class="waitlist-button">
           <img class="submit-icon" src="submit-icon.png"/>
         </button>
       </form>
+
+      <div id="spinner"></div>
+
+      <div id="successMessage">Thank you for signing up! We will email you as soon as we launch.</div>
+
+      <div id="errorMessage">Something went wrong. Please try again later.</div>
+
     </div>
   </div>
   <div class="cards">
@@ -702,5 +770,59 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.getElementById('waitlist-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Create a JSON object from form data
+    const formData = new FormData(event.target);
+    const jsonObject = Object.fromEntries(formData.entries());
+
+    document.body.classList.add('submitting');
+    document.getElementById('spinner').style.display = 'block';
+
+    const submitButton = document.getElementById('submit-button');
+    submitButton.disabled = true;
+
+    // Send the JSON object using fetch
+    fetch('https://both-innos-be.onrender.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ emailItemValue: jsonObject.email }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        const successMessage = document.getElementById('successMessage');
+        successMessage.style.display = 'block';
+
+        // Hide the message after 5 seconds
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 5000);
+      })
+      .catch(error => {
+        const errorMessage = document.getElementById('errorMessage');
+        errorMessage.style.display = 'block';
+
+        // Hide the message after 5 seconds
+        setTimeout(() => {
+          errorMessage.style.display = 'none';
+        }, 5000);
+      })
+      .finally(() => {
+        // Remove spinner and restore body opacity
+        document.body.classList.remove('submitting');
+        document.getElementById('spinner').style.display = 'none';
+      });
+  });
+
+  document.getElementById('waitlist').addEventListener('input', function () {
+    document.getElementById('submit-button').disabled = false; // Re-enable the field on edit
+  });
+</script>
+
 </body>
 </html>
